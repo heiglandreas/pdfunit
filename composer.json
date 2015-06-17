@@ -1,0 +1,24 @@
+{
+    "name": "org_heigl/pdfunit",
+    "description": "Unittests for comparing PDF-files",
+    "keywords": ["pdf", "unittest", "unittests"],
+    "type": "library",
+    "homepage": "https://github.com/heiglandreas/PDFUnit",
+    "license": "MIT",
+    "authors" : [{
+        "name" : "Andreas Heigl",
+        "email": "andreas@heigl.org",
+        "homepage": "http://andreas.heigl.org",
+        "role": "Developer"
+    }],
+    "support" : {
+        "issues" : "https://github.com/heiglandreas/PDFUnit/issues"
+    },
+    "version" : "1.0.0",
+    "require": {
+        "phpunit/phpunit": "^4.7"
+    },
+    "autoload": {
+        "psr-4": {"Org_Heigl\\PDFUnit\\": "src/"}
+    }
+}
