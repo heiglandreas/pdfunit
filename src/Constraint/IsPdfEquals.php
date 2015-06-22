@@ -28,7 +28,7 @@
 
 namespace Org_Heigl\PDFUnit\Constraint;
 
-class IsPdfEquals extends \PHPUnit_Framework_Contraint
+class IsPdfEquals extends \PHPUnit_Framework_Constraint
 {
 
     protected $comparisonFile;
