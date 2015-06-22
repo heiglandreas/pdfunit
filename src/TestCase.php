@@ -30,7 +30,7 @@ namespace Org_Heigl\PDFUnit;
 
 use Org_Heigl\PDFUnit\Constraint\IsPdfEquals;
 
-class TestCase extends PHPUnit_Framework_TestCase
+class TestCase extends \PHPUnit_Framework_TestCase
 {
     /**
      * Asserts that the just created PDF does not differ too much from the comparison.
