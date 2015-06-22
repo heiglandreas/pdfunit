@@ -43,10 +43,9 @@ class TestCase extends PHPUnit_Framework_TestCase
      */
     public static function assertPdfDiffBelowThreshold($comparison, $threshold, $condition, $message = '')
     {
-        $constraint = new IsPdfEquals($comparison, $threshold);
         self::assertThat(
             $condition,
-            $constraint->matches($condition),
+            new IsPdfEquals($comparison, $threshold),
             $message
         );
     }

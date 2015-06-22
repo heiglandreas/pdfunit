@@ -44,8 +44,8 @@ class IsPdfEquals extends \PHPUnit_Framework_Contraint
             ));
         }
 
-        $this->threshold     = $threshold;
-        $this->comarisonFile = $comparison;
+        $this->threshold      = $threshold;
+        $this->comparisonFile = $comparison;
     }
     /**
      * Evaluates the constraint for parameter $other. Returns TRUE if the
@@ -62,13 +62,16 @@ class IsPdfEquals extends \PHPUnit_Framework_Contraint
             ));
 
         }
-        exec(sprintf(
-            'compare metric mae "%s" "%s"',
-            $this->comarisonFile,
-            $other
-        ), $result, $retVal);
+        $command = sprintf(
+            'compare -metric mae %s %s %s 2>&1',
+            escapeshellarg($this->comparisonFile),
+            escapeshellarg($other),
+            escapeshellarg(tempnam(sys_get_temp_dir(), 'compass_test_diff'))
+        );
 
-        if ($retVal !== 0) {
+        exec($command, $result, $retVal);
+
+        if ($retVal > 1) {
             throw new \Exception(sprintf(
                 'There has been an error in executing the compare-script'
             ));
